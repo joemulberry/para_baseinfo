@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+import datetime
 
 dicts = []
 just_ids = []
@@ -61,3 +62,13 @@ with open('core.json', 'w') as fout:
 
 with open('os_ids.json', 'w') as fout:
     json.dump(just_ids, fout)
+    
+    
+# Open a file with access mode 'a'
+file_object = open('commit_logs.txt', 'a')
+# Append 'hello' at the end of file
+file_object.write("\\" + datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"))
+# Close the file
+file_object.close()
+
+
