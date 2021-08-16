@@ -67,7 +67,7 @@ with open('os_ids.json', 'w') as fout:
 # Open a file with access mode 'a'
 file_object = open('commit_logs.txt', 'a')
 # Append 'hello' at the end of file
-file_object.write("\\" + datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"))
+file_object.write(datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y") + " | " + str(len(just_ids)) + " cards \n")
 # Close the file
 file_object.close()
 
