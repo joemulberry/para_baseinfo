@@ -6,7 +6,7 @@ import datetime
 dicts = []
 just_ids = []
 
-for cardID in range(1,400):
+for cardID in range(1,800):
     
     url = 'https://parallel.life/cards/' + str(cardID) + '/'
     page = requests.get(url)
