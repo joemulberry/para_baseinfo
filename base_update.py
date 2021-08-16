@@ -3,6 +3,7 @@ import requests
 import json
 
 dicts = []
+just_ids = []
 
 for cardID in range(1,400):
     
@@ -51,6 +52,12 @@ for cardID in range(1,400):
             d['standard'] = 'standard'
 
         dicts.append(d)
+        just_ids.append(d['opensea_id'])
+
 
 with open('core.json', 'w') as fout:
+    json.dump(dicts, fout)
+
+
+with open('os_ids.json', 'w') as fout:
     json.dump(dicts, fout)
