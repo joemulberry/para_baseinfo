@@ -60,4 +60,4 @@ with open('core.json', 'w') as fout:
 
 
 with open('os_ids.json', 'w') as fout:
-    json.dump(dicts, fout)
+    json.dump(just_ids, fout)
