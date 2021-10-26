@@ -15,9 +15,12 @@ for cardID in range(1,1000):
     if len(soup.select('h3')) > 0:
         name = soup.select('title')
         h3s = soup.select('h3')
-        supply_p = soup.select('p')[2].text
         
-        print(supply_p)
+        for i, pp in enumerate(soup.select('p')):
+            if "Edition of" in pp.text:
+                supply_p = pp.text
+                break
+              
 
         h2s = soup.select('h2')        
         
