@@ -6,7 +6,7 @@ import datetime
 dicts = []
 just_ids = []
 
-for cardID in range(1,800):
+for cardID in range(1,1000):
     
     url = 'https://parallel.life/cards/' + str(cardID) + '/'
     page = requests.get(url)
@@ -16,6 +16,8 @@ for cardID in range(1,800):
         name = soup.select('title')
         h3s = soup.select('h3')
         supply_p = soup.select('p')[2].text
+        
+        print(supply_p)
 
         h2s = soup.select('h2')        
         
