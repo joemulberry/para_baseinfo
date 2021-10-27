@@ -23,8 +23,6 @@ for cardID in range(1,1000):
             if "Edition of" in pp.text:
                 supply_p = pp.text
                 break
-              
-
         
         d = {'name': name[0].text.lower().replace('parallel masterpiece // alpha // ','').strip(),
             'parallel': h3s[0].text,
@@ -59,6 +57,19 @@ for cardID in range(1,1000):
             d['standard'] = 'se'
         else:
             d['standard'] = 'standard'
+
+
+        night_substring_list = ['Night', 'night', 'Ngt']
+        if any(map(d['parallel_img'].__contains__, night_substring_list)):
+            d['night'] = 1
+        else: 
+            d['night'] = 0
+        
+        day_substring_list = ['Day', 'day']
+        if any(map(d['parallel_img'].__contains__, day_substring_list)):
+            d['day'] = 1
+        else:
+            d['day'] = 0
 
         dicts.append(d)
         just_ids.append(d['opensea_id'])
