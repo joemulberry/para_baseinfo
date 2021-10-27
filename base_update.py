@@ -58,6 +58,10 @@ for cardID in range(1,1000):
         else:
             d['standard'] = 'standard'
 
+        if '[PL]' in d['name']:
+            d['perfect_loop'] = 1
+        else: 
+            d['perfect_loop'] = 1
 
         night_substring_list = ['Night', 'night', 'Ngt']
         if any(map(d['parallel_img'].__contains__, night_substring_list)):
