@@ -3,6 +3,9 @@ import requests
 import json
 import datetime
 
+# TODO add card functions here to there are built directly into the core.json information from the get-go
+# if there is no function publically stated ... 'no function published to date'
+
 dicts = []
 just_ids = []
 
