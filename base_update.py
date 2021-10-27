@@ -22,14 +22,14 @@ for cardID in range(1,1000):
                 break
               
 
-        h2s = soup.select('h2')        
         
         d = {'name': name[0].text.lower().replace('parallel masterpiece // alpha // ','').strip(),
             'parallel': h3s[0].text,
             'description': h3s[1].text,
             'rarity': supply_p.split(' // ')[0].strip(),
             'supply': int(supply_p.split('// Edition of ')[1].strip()),
-            'parallel_id': str(cardID)
+            'parallel_id': str(cardID),
+            'parallel_img': soup.select('img')[1]['src']
             }
 
         links = soup.select('a')
