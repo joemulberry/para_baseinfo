@@ -16,6 +16,7 @@ for cardID in range(1,1000):
     soup = BeautifulSoup(page.text, 'html.parser')
     
     if len(soup.select('h3')) > 0:
+        
         name = soup.select('title')
         h3s = soup.select('h3')
         
@@ -23,9 +24,16 @@ for cardID in range(1,1000):
             if "Edition of" in pp.text:
                 supply_p = pp.text
                 break
-        
+            
+        part1 = soup.select('img')[1]['src'].split('card-art/')[1].split('_')[0].lower()
+        if part1 in ['universal', 'kathari', 'marcolian', 'earthen', 'augencore', 'shroud']:
+            parallel_name = part1
+        else:
+            parallel_name = 'none'
+
+            
         d = {'name': name[0].text.lower().replace('parallel masterpiece // alpha // ','').strip(),
-            'parallel': h3s[0].text,
+            'parallel': parallel_name,
             'description': h3s[1].text,
             'rarity': supply_p.split(' // ')[0].strip(),
             'supply': int(supply_p.split('// Edition of ')[1].strip()),
