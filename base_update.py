@@ -24,13 +24,27 @@ for cardID in range(1,1000):
             if "Edition of" in pp.text:
                 supply_p = pp.text
                 break
-            
+
+        
         part1 = soup.select('img')[1]['src'].split('card-art/')[1].split('_')[0].lower()
         if part1 in ['universal', 'kathari', 'marcolian', 'earthen', 'augencore', 'shroud']:
             parallel_name = part1
         else:
-            parallel_name = 'none'
-
+            if 'universal' in h3s[1].text or 'Universal' in h3s[1].text:
+                parallel_name = 'universal'
+            elif 'kathari' in h3s[1].text or 'Kathari' in h3s[1].text:
+                parallel_name = 'kathari'
+            elif 'marcolian' in h3s[1].text or 'Marcolian' in h3s[1].text:
+                parallel_name = 'marcolian'
+            elif 'earthen' in h3s[1].text or 'Earthen' in h3s[1].text:
+                parallel_name = 'earthen'
+            elif 'augencore' in h3s[1].text or 'Augencore' in h3s[1].text:
+                parallel_name = 'augencore'
+            elif 'shroud' in h3s[1].text or 'Shroud' in h3s[1].text:
+                parallel_name = 'shroud'
+            else:
+                parallel_name = 'none'
+            
             
         d = {'name': name[0].text.lower().replace('parallel masterpiece // alpha // ','').strip(),
             'parallel': parallel_name,
